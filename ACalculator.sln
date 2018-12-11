@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning", "Learning\Learning.csproj", "{B4041B33-7B2E-4F16-BB60-D9441417E92F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACalculator", "ACalculator\ACalculator.csproj", "{0A55EA2D-106E-4894-9D9B-B2AFB0994350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemComboGeneratorTest", "GemComboGeneratorTest\GemComboGeneratorTest.csproj", "{657E4809-09D5-47A5-9552-D9D24B020383}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4041B33-7B2E-4F16-BB60-D9441417E92F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4041B33-7B2E-4F16-BB60-D9441417E92F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4041B33-7B2E-4F16-BB60-D9441417E92F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4041B33-7B2E-4F16-BB60-D9441417E92F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A55EA2D-106E-4894-9D9B-B2AFB0994350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A55EA2D-106E-4894-9D9B-B2AFB0994350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A55EA2D-106E-4894-9D9B-B2AFB0994350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A55EA2D-106E-4894-9D9B-B2AFB0994350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{657E4809-09D5-47A5-9552-D9D24B020383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657E4809-09D5-47A5-9552-D9D24B020383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657E4809-09D5-47A5-9552-D9D24B020383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657E4809-09D5-47A5-9552-D9D24B020383}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

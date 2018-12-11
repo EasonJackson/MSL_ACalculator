@@ -8,15 +8,20 @@ namespace ACalculator
 {
     class ACalculator
     {
-        // Base attr
-        private const double Base_ATK = 3000;
-        private const double Base_CRT = 0.1;
-        private const double Base_CRD = 0.5;
-
         // Attr per gem
         private const double ATK_GEM = 0.68;
         private const double CRT_GEM = 0.55;
-        private const double CRD_GEM = 0.75;
+        private const double CRD_GEM = 0.70;
+
+        // Base attr
+        private static double Base_ATK = 0;
+        private static double Base_CRT = 0;
+        private static double Base_CRD = 0;
+        private static double Base_HP = 0;
+        private static double Base_DEF = 0;
+        private static double Base_RCV = 0;
+        private static double Base_RST = 0;
+
 
         // Combo attr
         private static double GemCombo_ATK = 0;
@@ -29,58 +34,10 @@ namespace ACalculator
         private static double Vice_CRD = 0;
 
         // Combinations
-        //private static readonly string[] combinations =
-        //{
-        //    "ATK,ATK,ATK",
-        //    "ATK,ATK,CRT",
-        //    "ATK,ATK,CRD",
-        //    "CRT,CRT,ATK",
-        //    "CRT,CRT,CRT",
-        //    "CRT,CRT,CRD",
-        //    "CRD,CRD,ATK",
-        //    "CRD,CRD,CRT",
-        //    "CRD,CRD,CRD",
-        //    "ATK,CRT,CRD"
-        //};
-        private static readonly List<string> combinations = GetCombinations(new string[]{"ATK", "CRT", "CRD"});
+        private static string[] options = { "ATK", "CRT", "CRD" };
+        private static readonly List<string> combinations = GemComboGenerator.GetCombinations(ref options, 3);
 
-        private static List<string> GetCombinations (string[] options)
-        {
-            return CombinationHelper(options, 0, 3);
-        }
-
-        private static List<string> CombinationHelper(string[] options, int index, int n)
-        {
-            if (n <= 0 || index >= options.Length)
-            {
-                return null;
-            }
-
-            List<string> res = new List<string>();
-            res.Add(String.Concat(Enumerable.Repeat(options[index] + ",", n - 1)) + options[index]);
-
-            // Using options[index] for n-1 -> 1 times, record results
-            for (int i = n; i >= 1; i--)
-            {
-                string prefix = String.Concat(Enumerable.Repeat(options[index] + ",", i - 1)) + options[index];
-                List<string> rest = CombinationHelper(options, index + 1, n - i);
-                if (rest != null)
-                {
-                    foreach (string tail in rest)
-                    {
-                        res.Add(prefix + "," + tail);
-                    }
-                }
-            }
-
-            // Not using options[index]
-            List<string> exclusive = CombinationHelper(options, index + 1, n);
-            if (exclusive != null)
-            {
-                res.AddRange(exclusive);
-            } 
-            return res;
-        }
+        
 
         private static void SetBaseAttr(Gem g, Dictionary<string, double> vice_attr)
         {
@@ -158,8 +115,8 @@ namespace ACalculator
                 {
                     tmp_CRT = 1;
                 }
-                //double final_atk = CalcExpectation(tmp_ATK, tmp_CRT, tmp_CRD);
-                double final_atk = CalcExpectationWithDestroySkill(tmp_ATK, tmp_CRT, tmp_CRD);
+                double final_atk = CalcExpectation(tmp_ATK, tmp_CRT, tmp_CRD);
+                //double final_atk = CalcExpectationWithDestroySkill(tmp_ATK, tmp_CRT, tmp_CRD);
                 //double final_atk = CalcExpectationWithHighCRTSkill(tmp_ATK, tmp_CRT, tmp_CRD);
                 Console.WriteLine(group + " : " + final_atk.ToString() + " ATK: " + tmp_ATK_rate.ToString() + " CRT: " + tmp_CRT.ToString() + " CRD: " + tmp_CRD.ToString());
             }
